@@ -5,15 +5,31 @@ namespace Port3M5\DComposer;
 use Port3M5\DComposer\Archives\ZipArchive;
 use Port3M5\DComposer\Archives\RarArchive;
 
+/**
+ * Deals with creating the correct instance of CompressedArchive
+ *
+ * @author Anthony Porthouse <admin@port3m5.com>
+ * @since 0.0.1
+ * @package Port3M5\DComposer
+ */
 class Factory
 {
     public function __construct($file = null)
     {
         if($file) {
-            $this->factory($file);
+            return $this->factory($file);
         }
     }
 
+    /**
+     * Creates the instance of CompressedArchive given the file. Filetype is determined by extension
+     *
+     * @author Anthony Porthouse <admin@port3m5.com>
+     * @since 0.0.1
+     * @param $file Path to the file that is to be returned
+     * @return RarArchive|ZipArchive
+     * @throws \InvalidArgumentException
+     */
     public function factory($file)
     {
         $extension = $this->getFileType($file);
