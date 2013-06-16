@@ -4,6 +4,7 @@ namespace Port3M5\DComposer;
 
 use Port3M5\DComposer\Archives\ZipArchive;
 use Port3M5\DComposer\Archives\RarArchive;
+use Port3M5\DComposer\Archives\NullArchive;
 
 /**
  * Deals with creating the correct instance of CompressedArchive
@@ -26,9 +27,8 @@ class Factory
      *
      * @author Anthony Porthouse <admin@port3m5.com>
      * @since 0.0.1
-     * @param $file Path to the file that is to be returned
-     * @return RarArchive|ZipArchive
-     * @throws \InvalidArgumentException
+     * @param string $file Path to the file that is to be returned
+     * @return \Port3M5\DComposer\Archives\NullArchive|\Port3M5\DComposer\Archives\RarArchive|\Port3M5\DComposer\Archives\ZipArchive
      */
     public function factory($file)
     {
@@ -42,7 +42,7 @@ class Factory
                 return new RarArchive($file);
                 break;
             default:
-                throw new \InvalidArgumentException("File must be a type of zip or rar archive");
+                return new NullArchive($file);
         }
     }
 
