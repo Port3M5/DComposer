@@ -4,20 +4,21 @@ namespace Port3M5\DComposer\Archives;
 
 use Port3M5\DComposer\Interfaces\CompressedArchive;
 
-class RarArchive implements CompressedArchive
+class NullArchive implements CompressedArchive
 {
-    public function getType()
+    function getType()
     {
-        return "rar";
+        return "null";
     }
 
-    public function extract($path)
+    function extract($path)
     {
-        //TODO
+
     }
 
     public function getFiles()
     {
-        //TODO
+
     }
+
 }

@@ -5,4 +5,5 @@ interface CompressedArchive
 {
     public function getType();
     public function extract($path);
+    public function getFiles();
 }

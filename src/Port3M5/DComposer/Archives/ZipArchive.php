@@ -17,4 +17,9 @@ class ZipArchive implements CompressedArchive
         //TODO
     }
 
+    public function getFiles()
+    {
+        //TODO
+    }
+
 }
